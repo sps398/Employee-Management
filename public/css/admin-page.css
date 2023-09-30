@@ -1,0 +1,48 @@
+.main {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 1rem;
+    background-color: black;
+    color: white;
+}
+
+#add-employee-btn {
+    width: 20%;
+    margin: auto;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#employees-list-view {
+    padding: 1rem 0;
+    height: 80%;
+    overflow-y: auto;
+}
+
+.employee-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.employee-image {
+    width: 5rem;
+    height: 100%;
+    margin-right: 2rem;
+    border-radius: 0.5rem;
+}
+
+.employee-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.employee-element {
+    width: 95%;
+    padding: 1rem;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #373434;
+}

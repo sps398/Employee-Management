@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/admin-page.css">
+</head>
+<body>
+    <div class="main">
+        <div id="add-employee-btn" class="btn" onclick="showOverlay('overlay-add-employee')">Add Employee</div>
+        <hr>
+        <div id="employees-list-view">
+            <div class="employee-element" class="card">
+                <div class="employee-details">
+                    <div class="employee-image">
+                        <img src="../images/me.jpeg" alt="">
+                    </div>
+                    <div>
+                        <div>Name: <span>Shashank</span></div>
+                        <div>Email: <span>sps@gmail.com</span></div>
+                        <div>Job Title: <span>Software Engineer</span></div>
+                        <div>Salary: <span>50000</span></div>
+                        <div>Last Logged In: <span>02-02-2020</span></div>
+                    </div>
+                </div>
+                <div class="employee-action">
+                    <button class="btn" onclick="showOverlay('overlay-add-employee')">Edit</button>
+                    <button class="btn">Delete</button>
+                </div>
+            </div>
+        </div>
+        <div id="overlay-add-employee" class="overlay">
+            <div id="dialog-add-employee" class="dialog-box">
+                <h2 id="dialog-title">Add Employee</h2>
+            <form id="add-employee-form">   
+                <div class="form-control">
+                    <label>Name:</label>
+                    <input id="employee-name" type="text" required></input>
+                </div>
+                <div class="form-control">
+                    <label>Email:</label>
+                    <input id="employee-email" type="email" required></input>
+                </div>
+                <div class="form-control">
+                    <label>Job Title</label>
+                    <input id="employee-job-title" type="text" required></input>
+                </div>
+                <div class="form-control">
+                    <label>Salary</label>
+                    <input id="employee-salary" type="number" required></input>
+                </div>
+                <div class="form-control">
+                    <label>Password</label>
+                    <input id="employee-password" type="password" required></input>
+                </div>
+                <div class="form-control">
+                    <label for="">Upload Photo</label>
+                    <input id="employee-photo" type="file" accept="/image/"></input>
+                </div>
+
+                <div class="dialog-actions">
+                    <button class="dialog-btn" type="button" onclick="closeOverlay('overlay-add-employee')">Cancel</button>
+                    <button id="submit-employee--form-btn" class="dialog-btn" type="submit">Add</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+    <script src="../js/common.js"></script>
+    <script src="../js/admin-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="main flex">
+        <div id="admin-login" class="container flex" onclick="showOverlay('overlay-admin-login')">
+            Admin Login
+        </div>
+        <div id="user-login" class="container flex" onclick="showOverlay('overlay-employee-login')">
+            User Login
+        </div>
+    </div>
+    <div id="overlay-admin-login" class="overlay">
+        <div id="admin-login-dialog" class="dialog-box card">
+            <h2>Admin Login</h2>
+            <form id="admin-login-form">
+                <div class="form-control">
+                    <label>Title</label>
+                    <input id="admin-title" type="text" required></input>
+                </div>
+                <div class="form-control">
+                    <label>Password</label>
+                    <input  id="admin-password" type="password" required></input>
+                </div>
+                <div class="dialog-actions">
+                    <button class="dialog-btn" type="button" onclick="closeOverlay('overlay-admin-login')">Cancel</button>
+                    <button class="dialog-btn" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="overlay-employee-login" class="overlay">
+        <div id="employee-login-dialog" class="dialog-box card">
+            <h2>Employee Login</h2>
+            <form id="employee-login-form">
+                <div class="form-control">
+                    <label>Email:</label>
+                    <input id="employee-email" type="email" required></input>
+                </div>
+                <div class="form-control">
+                    <label>Password</label>
+                    <input id="employee-password" type="password" required></input>
+                </div>
+                <div class="dialog-actions">
+                    <button class="dialog-btn" type="button" onclick="closeOverlay('overlay-employee-login')">Cancel</button>
+                    <button class="dialog-btn" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/home.js"></script>
+</body>
+
+</html>

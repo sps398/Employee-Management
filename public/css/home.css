@@ -1,0 +1,37 @@
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+.container {
+    width: 10rem;
+    height: 10rem;
+    margin: 2rem;
+    cursor: pointer;
+    background-color: #373434;
+    color: white;
+    border-radius: 1rem 2rem;
+    font-weight: bold;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: 0.1s ease-in-out;
+}
+
+.main > div:hover {
+    transform: scale(1.2);
+}
+
+.container:hover {
+    background-color: rgb(70, 62, 62);
+}   
+
+#admin-login-form {
+    width: 100%;
+}
