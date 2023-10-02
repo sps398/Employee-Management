@@ -45,4 +45,5 @@
     justify-content: space-between;
     align-items: center;
     background-color: #373434;
+    border-bottom: 1px solid white;
 }

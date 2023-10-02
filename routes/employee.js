@@ -3,8 +3,10 @@ const router = express.Router();
 
 const employeeController = require('../controllers/employee');
 
-router.get('/details', employeeController.getDetails);
+router.post('/login', employeeController.login);
 
-router.get('/image', employeeController.getImageUrl);
+router.get('/details/:employeeId', employeeController.getDetails);
+
+router.get('/image/::employeeId', employeeController.getImageUrl);
 
 module.exports = router;

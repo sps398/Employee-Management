@@ -29,10 +29,12 @@ app.use((req, res, next) => {
 
 sequelize
     .sync()
+    // .sync({alter: true})
+    // .sync({force:true})
     .then(result => {
         console.log('Connected to db...');
         const port = process.env.PORT || 3000;
         app.listen(port, () => {
             console.log('Listening at port', port);
         })
-    })  
+    })

@@ -6,35 +6,33 @@
     <title>Admin Page</title>
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/admin-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script>
+        let admin;
+        admin = decodeToken();
+        if(admin.role !== 'admin') {
+            alert('Please login as admin!');
+            window.location.href = './home.html';
+        }
+    </script>
     <div class="main">
-        <div id="add-employee-btn" class="btn" onclick="showOverlay('overlay-add-employee')">Add Employee</div>
+        <div>
+            <div id="add-employee-btn" class="btn" onclick="addEmployee()">Add Employee</div>
+            <div class="btn logout" onclick="logout()">Logout</div>
+        </div>
         <hr>
         <div id="employees-list-view">
-            <div class="employee-element" class="card">
-                <div class="employee-details">
-                    <div class="employee-image">
-                        <img src="../images/me.jpeg" alt="">
-                    </div>
-                    <div>
-                        <div>Name: <span>Shashank</span></div>
-                        <div>Email: <span>sps@gmail.com</span></div>
-                        <div>Job Title: <span>Software Engineer</span></div>
-                        <div>Salary: <span>50000</span></div>
-                        <div>Last Logged In: <span>02-02-2020</span></div>
-                    </div>
-                </div>
-                <div class="employee-action">
-                    <button class="btn" onclick="showOverlay('overlay-add-employee')">Edit</button>
-                    <button class="btn">Delete</button>
-                </div>
-            </div>
         </div>
         <div id="overlay-add-employee" class="overlay">
             <div id="dialog-add-employee" class="dialog-box">
                 <h2 id="dialog-title">Add Employee</h2>
-            <form id="add-employee-form">   
+            <form id="add-employee-form" enctype="multipart/form-data">   
                 <div class="form-control">
                     <label>Name:</label>
                     <input id="employee-name" type="text" required></input>
@@ -42,6 +40,10 @@
                 <div class="form-control">
                     <label>Email:</label>
                     <input id="employee-email" type="email" required></input>
+                </div>
+                <div class="form-control">
+                    <label>Phone No:</label>
+                    <input id="employee-phoneno" type="number" required></input>
                 </div>
                 <div class="form-control">
                     <label>Job Title</label>
@@ -57,18 +59,49 @@
                 </div>
                 <div class="form-control">
                     <label for="">Upload Photo</label>
-                    <input id="employee-photo" type="file" accept="/image/"></input>
+                    <input id="employee-photo" type="file" accept="image/*" required></input>
                 </div>
 
                 <div class="dialog-actions">
                     <button class="dialog-btn" type="button" onclick="closeOverlay('overlay-add-employee')">Cancel</button>
-                    <button id="submit-employee--form-btn" class="dialog-btn" type="submit">Add</button>
+                    <button id="submit-form-btn" class="dialog-btn" type="submit">Add</button>
+                </div>
+            </form>
+            </div>
+        </div>
+        <div class="overlay" id="overlay-update-employee">
+            <div id="dialog-update-employee" class="dialog-box">
+                <h2 id="update-dialog-title">Update Employee</h2>
+            <form id="update-employee-form" enctype="multipart/form-data">   
+                <div class="form-control">
+                    <label>Name:</label>
+                    <input id="updated-employee-name" type="text" required></input>
+                </div>
+                <div class="form-control">
+                    <label>Email:</label>
+                    <input id="updated-employee-email" type="email" required></input>
+                </div>
+                <div class="form-control">
+                    <label>Phone No:</label>
+                    <input id="updated-employee-phoneno" type="number" required></input>
+                </div>
+                <div class="form-control">
+                    <label>Job Title</label>
+                    <input id="updated-employee-job-title" type="text" required></input>
+                </div>
+                <div class="form-control">
+                    <label>Salary</label>
+                    <input id="updated-employee-salary" type="number" required></input>
+                </div>
+
+                <div class="dialog-actions">
+                    <button class="dialog-btn" type="button" onclick="closeOverlay('overlay-update-employee')">Cancel</button>
+                    <button id="update-form-btn" class="dialog-btn" type="submit">Update</button>
                 </div>
             </form>
             </div>
         </div>
     </div>
-    <script src="../js/common.js"></script>
     <script src="../js/admin-page.js"></script>
 </body>
 </html>

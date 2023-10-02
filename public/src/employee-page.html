@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/employee-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script>
+        let employee;
+        employee = decodeToken();
+        if(employee.role !== 'employee') {
+            alert('Please login as employee!');
+            window.location.href = './home.html';
+        }
+    </script>
+    <div class="main">
+        <h2 id="page-title">My Profile</h2>
+        <div id="details" class="details flex">
+        </div>
+        <div class="logout btn" onclick="logout()" style="position: absolute;right: 1rem;top: 1rem;text-align: center;">Logout</div>
+    </div>
+    <script src="../js/employee-page.js"></script>
+</body>
+</html>

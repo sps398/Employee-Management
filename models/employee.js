@@ -3,9 +3,8 @@ const sequelize = require('../util/database');
 
 const Employee = sequelize.define('employee', {
     id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DataTypes.UUID,
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true
     },
     name: {
@@ -26,13 +25,13 @@ const Employee = sequelize.define('employee', {
         allowNull: false,
         unique: true
     },
-    image: {
+    imageUrl: {
         type: Sequelize.STRING,
         allowNull: false
     },
     jobTitle: Sequelize.STRING,
     salary: Sequelize.INTEGER,
-    last_logged_in: Sequelize.INTEGER
+    last_logged_in: Sequelize.DATE
 })
 
 module.exports = Employee;
