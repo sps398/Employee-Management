@@ -13,7 +13,7 @@ app.use(bodyParser.json({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.redirect('/src/home.html');
+    res.sendFile(path.join(__dirname, 'public', 'src', 'home.html'));
 })
 
 app.use('/admin', adminRoutes);
